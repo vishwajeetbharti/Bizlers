@@ -60,7 +60,8 @@ class VehiclesProfile extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            if (controllernumber.text != "") {
+            if (controllernumber.text != "" &&
+                controllernumber.text.length == 10) {
               Strings.number = controllernumber.text.toString();
               Navigator.push(
                   context,
