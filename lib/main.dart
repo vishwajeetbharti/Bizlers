@@ -1,4 +1,5 @@
 import 'package:bizlers/provider/profile_provider.dart';
+import 'package:bizlers/provider/screen_manager.dart';
 import 'package:bizlers/provider/sqlitedb.dart';
 import 'package:bizlers/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<DatabaseHelper>(
           create: (_) => DatabaseHelper(),
-        )
+        ),
+        ChangeNotifierProvider<ScreenManager>(
+          create: (_) => ScreenManager(),
+        ),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

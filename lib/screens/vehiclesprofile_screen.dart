@@ -1,7 +1,8 @@
 import 'package:bizlers/constant/string.dart';
-import 'package:bizlers/screens/typeselection_screen.dart';
+import 'package:bizlers/provider/screen_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 class VehiclesProfile extends StatelessWidget {
   VehiclesProfile({Key? key}) : super(key: key);
@@ -9,6 +10,7 @@ class VehiclesProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ScreenManager>(context);
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -63,10 +65,7 @@ class VehiclesProfile extends StatelessWidget {
             if (controllernumber.text != "" &&
                 controllernumber.text.length == 10) {
               Strings.number = controllernumber.text.toString();
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const TypeSelection()));
+              provider.manager("Select Wheeler", context);
             } else {
               Fluttertoast.showToast(msg: "Enter Vehicles number");
             }

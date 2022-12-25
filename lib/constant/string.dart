@@ -17,4 +17,5 @@ class Strings {
   static String selectionModel = "";
   static String fuelType = "";
   static String transmissionType = "";
+  static String selection = "";
 }
