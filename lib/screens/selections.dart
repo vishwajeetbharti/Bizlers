@@ -29,26 +29,26 @@ class _SelectionState extends State<Selection> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.height * 0.075,
-                  child: GestureDetector(
-                    onTap: () {
-                      Strings.selection = widget.show[index];
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Strings.selection = widget.show[index];
 
-                      if (widget.tittle == "Select Wheeler") {
-                        provider.manager("Select Make", context);
-                      } else if (widget.tittle == "Select Make") {
-                        provider.manager("Select Model", context);
-                      } else if (widget.tittle == "Select Model") {
-                        provider.manager("Select FuelType", context);
-                      } else if (widget.tittle == "Select FuelType") {
-                        provider.manager("Select Transmission", context);
-                      } else {
-                        provider.manager("showProfile", context);
-                      }
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
+                          if (widget.tittle == "Select Wheeler") {
+                            provider.manager("Select Make", context);
+                          } else if (widget.tittle == "Select Make") {
+                            provider.manager("Select Model", context);
+                          } else if (widget.tittle == "Select Model") {
+                            provider.manager("Select FuelType", context);
+                          } else if (widget.tittle == "Select FuelType") {
+                            provider.manager("Select Transmission", context);
+                          } else {
+                            provider.manager("showProfile", context);
+                          }
+                        },
+                        child: Container(
                           margin: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * 0.05,
                           ),
@@ -57,11 +57,9 @@ class _SelectionState extends State<Selection> {
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
-                        GestureDetector(
-                            onTap: () {},
-                            child: const Icon(Icons.arrow_forward_ios)),
-                      ],
-                    ),
+                      ),
+                      const Icon(Icons.arrow_forward_ios),
+                    ],
                   ),
                 ),
               );
